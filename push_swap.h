@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/30 15:35:46 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:10:40 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "libftprintf/libft.h"
 # include <stdlib.h>
 
-# define ARG "1 2 3"
 
 typedef struct s_stack
 {

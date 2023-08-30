@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/30 15:30:46 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/08/30 16:11:04 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	push_swap(int argc, char **argv)
 	i = 0;
 	tab = ft_split(argv[1], ' ');
 	stack_a = ps_genstack(tab);
+	print_stack(stack_a, 'A');
+	print_stack(stack_b, 'B');
 	return (0);
 }
 
@@ -33,7 +35,7 @@ int	push_swap(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	argc = 2;
-	argv[1] = ARG;
+	argv[1] = "1 2 3 4 5";
 	push_swap(argc, argv);
 	return (0);
 }

@@ -1,6 +1,8 @@
 RED			=	\033[0;31m
 GREEN		=	\033[0;32m
 BLUE		=	\033[1;34m
+YELLOW		=	\033[1;33m
+GREY		=	\033[1;30m
 NC			=	\033[0m
 
 OBJCS		:=	PS_utils.o \
@@ -40,13 +42,17 @@ fclean		:	clean
 
 re			:	fclean all
 
-run			:	all
+crun		:	all
 	@echo "$(BLUE)\n-------------- RESULT --------------$(NC)"
 	@./push_swap
 	@echo "$(BLUE)------------------------------------\n$(NC)"
-	@# @echo "cleaning up...\n"
-	@# @rm -f *.o push_swap
+	@echo "$(YELLOW)cleaning up...$(NC)\n$(GREY)(psst... dont forget to 'cclean' every once in a while)$(NC)\n"
+	@rm -f *.o push_swap
 
+run		:	all
+	@echo "$(BLUE)\n-------------- RESULT --------------$(NC)"
+	@./push_swap
+	@echo "$(BLUE)------------------------------------\n$(NC)"
 
 push		: 	fclean
 	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
@@ -63,4 +69,4 @@ push		: 	fclean
 	@echo " $(GREEN)		 - - -	PUSH OK!	- - - $(NC)\n\n"
 	@echo "\n$(GREEN)= = = = = [UPDATE OK!] = = = = =$(NC)\n\n"
 
-.PHONY		:	all clean fclean re run libft
+.PHONY		:	all clean fclean re libft crun run push
