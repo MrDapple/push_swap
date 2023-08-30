@@ -46,7 +46,7 @@ RED			=	\033[0;31m
 NC			=	\033[0m
 
 push		:	fclean
-	@echo -e ";31m\n	$(RED)UPDATING....$(NC) \n\n"
+	@echo -e "\n	$(RED)UPDATING....$(NC) \n\n"
 	git status
 	@echo -e "\n	ADDING CHANGES.... \n\n"
 	git add -A
