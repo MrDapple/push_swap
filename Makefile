@@ -49,6 +49,10 @@ NC			=	\033[0m
 
 push		:	fclean
 	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
+	@echo "$(BLUE)		- - -	CLEANING....	- - - $(NC)\n\n"
+	@rm -f *.o
+	@rm -f push_swap
+	@echo " $(GREEN)		- - -	CLEANING OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(NC)\n\n"
 	@git add -A
 	@echo " $(GREEN)		- - -	ADD CHANGES OK!	- - - $(NC)\n\n"
