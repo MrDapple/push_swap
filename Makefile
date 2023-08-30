@@ -43,10 +43,14 @@ run			:	all
 	@# @rm -f *.o push_swap
 
 push		: fclean
+	@echo "\n	UPDATING.... \n\n"
 	git status
+	@echo "\n	ADDING CHANGES.... \n\n"
 	git add -A
 	git status
+	@echo "\n	COMMITING.... \n\n"
 	git commit -m "auto-update"
+	@echo "\n	PUSHING.... \n\n"
 	git push
 
 .PHONY		:	all clean fclean re run libft
