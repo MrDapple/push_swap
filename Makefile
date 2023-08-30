@@ -43,17 +43,19 @@ run			:	all
 	@# @rm -f *.o push_swap
 
 RED			=	\033[0;31m
+GREEN		=	\033[0;32m
 NC			=	\033[0m
 
 push		:	fclean
-	@echo -e "\n	$(RED)UPDATING....$(NC) \n\n"
-	git status
-	@echo -e "\n	ADDING CHANGES.... \n\n"
-	git add -A
-	git status
-	@echo -e "\n	COMMITING.... \n\n"
-	git commit -m "auto-update"
-	@echo -e "\n	PUSHING.... \n\n"
-	git push
+	@echo -e "\n	$(RED)UPDATING....$(NC)"
+	@echo -e "\n		ADDING CHANGES...."" \n\n"
+	@git add -A
+	@echo -e " $(GREEN)OK!$(NC)\n\n"
+	@echo -e "\n		COMMITING...."
+	@git commit -m "auto-update"
+	@echo -e " $(GREEN)OK!$(NC)\n\n"
+	@echo -e "\n		PUSHING...."
+	@git push
+	@echo -e " $(GREEN)OK!$(NC)\n\n"
 
 .PHONY		:	all clean fclean re run libft
