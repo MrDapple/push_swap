@@ -47,7 +47,7 @@ GREEN		=	\033[0;32m
 BLUE		=	\033[1;34m
 NC			=	\033[0m
 
-push		:
+push		: fclean
 	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
 	@echo "$(BLUE)		- - -	CLEANING....	- - - $(NC)\n\n"
 	rm -fr *.o
