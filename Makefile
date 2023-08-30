@@ -44,17 +44,18 @@ run			:	all
 
 RED			=	\033[0;31m
 GREEN		=	\033[0;32m
+BLUE		=	\033[1;34m
 NC			=	\033[0m
 
 push		:	fclean
-	@echo "$(RED)UPDATING....$(NC)"
-	@echo "\n		ADDING CHANGES...."
+	@echo "$(RED)	UPDATING....$(NC)"
+	@echo "\n$(BLUE)	ADDING CHANGES...."
 	@git add -A
 	@echo " $(GREEN)		ADD CHANGES OK!$(NC)\n\n"
-	@echo "\n		COMMITING...."
+	@echo "\n$(BLUE)	COMMITING...."
 	@git commit -m "auto-update"
 	@echo " $(GREEN)		COMMIT OK!$(NC)\n\n"
-	@echo "\n		PUSHING...."
+	@echo "\n$(BLUE)	PUSHING...."
 	@git push
 	@echo " $(GREEN)		OK!$(NC)\n\n"
 
