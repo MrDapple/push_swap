@@ -47,15 +47,15 @@ GREEN		=	\033[0;32m
 NC			=	\033[0m
 
 push		:	fclean
-	@echo -e "\n	$(RED)UPDATING....$(NC)"
-	@echo -e "\n		ADDING CHANGES...."" \n\n"
+	@echo "\n	$(RED)UPDATING....$(NC)"
+	@echo "\n		ADDING CHANGES...."" \n\n"
 	@git add -A
-	@echo -e " $(GREEN)OK!$(NC)\n\n"
-	@echo -e "\n		COMMITING...."
+	@echo " $(GREEN)OK!$(NC)\n\n"
+	@echo "\n		COMMITING...."
 	@git commit -m "auto-update"
-	@echo -e " $(GREEN)OK!$(NC)\n\n"
-	@echo -e "\n		PUSHING...."
+	@echo " $(GREEN)OK!$(NC)\n\n"
+	@echo "\n		PUSHING...."
 	@git push
-	@echo -e " $(GREEN)OK!$(NC)\n\n"
+	@echo " $(GREEN)OK!$(NC)\n\n"
 
 .PHONY		:	all clean fclean re run libft
