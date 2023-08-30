@@ -50,8 +50,8 @@ NC			=	\033[0m
 push		:
 	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
 	@echo "$(BLUE)		- - -	CLEANING....	- - - $(NC)\n\n"
-	rm -f *.o
-	rm -f push_swap
+	rm -fr *.o
+	rm -fr push_swap
 	@echo " $(GREEN)		- - -	CLEANING OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(NC)\n\n"
 	@git status
