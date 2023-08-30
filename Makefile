@@ -50,12 +50,12 @@ push		:	fclean
 	@echo "$(RED)UPDATING....$(NC)"
 	@echo "\n		ADDING CHANGES...."
 	@git add -A
-	@echo " $(GREEN)OK!$(NC)\n\n"
+	@echo " $(GREEN)		OK!$(NC)\n\n"
 	@echo "\n		COMMITING...."
 	@git commit -m "auto-update"
-	@echo " $(GREEN)OK!$(NC)\n\n"
+	@echo " $(GREEN)		OK!$(NC)\n\n"
 	@echo "\n		PUSHING...."
 	@git push
-	@echo " $(GREEN)OK!$(NC)\n\n"
+	@echo " $(GREEN)		OK!$(NC)\n\n"
 
 .PHONY		:	all clean fclean re run libft
