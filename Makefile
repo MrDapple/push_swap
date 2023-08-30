@@ -58,5 +58,6 @@ push		:	fclean
 	@echo "$(BLUE)		- - -	PUSHING....	- - - $(NC)\n\n"
 	@git push
 	@echo " $(GREEN)		 - - -	PUSH OK!	- - - $(NC)\n\n"
+	@echo "\n$(GREEN)= = = = = [UPDATE OK!] = = = = =$(NC)\n\n"
 
 .PHONY		:	all clean fclean re run libft
