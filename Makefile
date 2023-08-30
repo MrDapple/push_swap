@@ -42,8 +42,8 @@ run			:	all
 	@# @echo "cleaning up...\n"
 	@# @rm -f *.o push_swap
 
-RED			=	'\033[0;31m'
-NC			=	'\033[0m'
+RED			=	\033[0;31m
+NC			=	\033[0m
 
 push		:	fclean
 	@echo -e ";31m\n	$(RED)UPDATING....$(NC) \n\n"
