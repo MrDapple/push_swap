@@ -47,12 +47,8 @@ GREEN		=	\033[0;32m
 BLUE		=	\033[1;34m
 NC			=	\033[0m
 
-push		: fclean
+push		: 	fclean
 	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
-	@echo "$(BLUE)		- - -	CLEANING....	- - - $(NC)\n\n"
-	rm -fr *.o
-	rm -fr push_swap
-	@echo " $(GREEN)		- - -	CLEANING OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(NC)\n\n"
 	@git status
 	@git add -A
