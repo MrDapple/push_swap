@@ -54,6 +54,7 @@ push		:	fclean
 	@rm -f push_swap
 	@echo " $(GREEN)		- - -	CLEANING OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(NC)\n\n"
+	git status
 	@git add -A
 	@echo " $(GREEN)		- - -	ADD CHANGES OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	COMMITING....	- - - $(NC)\n\n"
