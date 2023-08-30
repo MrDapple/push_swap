@@ -42,15 +42,18 @@ run			:	all
 	@# @echo "cleaning up...\n"
 	@# @rm -f *.o push_swap
 
-push		: fclean
-	@echo "\n	UPDATING.... \n\n"
+RED			=	'\033[0;31m'
+NC			=	'\033[0m'
+
+push		:	fclean
+	@echo -e ";31m\n	$(RED)UPDATING....$(NC) \n\n"
 	git status
-	@echo "\n	ADDING CHANGES.... \n\n"
+	@echo -e "\n	ADDING CHANGES.... \n\n"
 	git add -A
 	git status
-	@echo "\n	COMMITING.... \n\n"
+	@echo -e "\n	COMMITING.... \n\n"
 	git commit -m "auto-update"
-	@echo "\n	PUSHING.... \n\n"
+	@echo -e "\n	PUSHING.... \n\n"
 	git push
 
 .PHONY		:	all clean fclean re run libft
