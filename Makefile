@@ -47,7 +47,7 @@ GREEN		=	\033[0;32m
 NC			=	\033[0m
 
 push		:	fclean
-	@echo -n '$(RED)UPDATING....$(NC)'
+	@echo -n "$(RED)UPDATING....$(NC)"
 	@echo "\n		ADDING CHANGES...."
 	@git add -A
 	@echo " $(GREEN)OK!$(NC)\n\n"
