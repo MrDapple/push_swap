@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/30 10:20:58 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/08/30 15:29:27 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,31 +18,37 @@
 # include "libftprintf/libft.h"
 # include <stdlib.h>
 
-# define ARG "2 6 10"
+# define ARG "1 2 3"
 
 typedef struct s_stack
 {
 	int				data;
-	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
 
 //			--[UTILS]--
 
 //	MISC
-void				print_stack(t_stack *stack);
+void				print_stack(t_stack *stack, char type);
 
 // SORT 'A'
-void				ps_swap_a(t_stack *stack);
+void				ps_swap_a(t_stack **stack);
+void				ps_push_a(t_stack **a, t_stack **b);
+void				ps_rotate_a(t_stack **stack);
+void				ps_revrot_a(t_stack **stack);
 
 // SORT 'B'
-void				ps_swap_b(t_stack *stack);
-void				ps_push_b(t_stack *stack_a, t_stack *stack_b);
+void				ps_swap_b(t_stack **stack);
+void				ps_push_b(t_stack **a, t_stack **b);
+void				ps_rotate_b(t_stack **stack);
+void				ps_revrot_b(t_stack **stack);
 
-// SORT 'S'
-void				ps_swap_s(t_stack *stack1, t_stack *stack2);
+// SORT '2'
+void				ps_swap_2(t_stack **a, t_stack **b);
+void				ps_rotate_2(t_stack **a, t_stack **b);
+void				ps_revrot_2(t_stack **a, t_stack **b);
 
-// STACK
+// STACK utils
 t_stack				*ps_genstack(char **args);
 t_stack				*ps_new_stack(int content);
 void				ps_stackadd_back(t_stack **lst, t_stack *new);

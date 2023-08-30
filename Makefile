@@ -3,7 +3,7 @@ OBJCS		:=	PS_utils.o \
 				MISC_PS_utils.o \
 				PS_A_utils.o \
 				PS_B_utils.o \
-				PS_S_utils.o \
+				PS_2_utils.o \
 
 HEADER		:=	push_swap.h \
 
@@ -36,10 +36,9 @@ re			:	fclean all
 
 run			:	all
 	@echo "\n-------------- RESULT --------------"
-	@${CC} ${CFLAGS} $(OBJCS) $(LIBPRINT) -o ${NAME}
 	@./push_swap
 	@echo "------------------------------------\n"
-	@echo "cleaning up...\n"
-	@rm -f *.o push_swap
+	@# @echo "cleaning up...\n"
+	@# @rm -f *.o push_swap
 
 .PHONY		:	all clean fclean re run libft

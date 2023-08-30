@@ -19,7 +19,6 @@ t_stack	*ps_new_stack(int content)
 	ptr = malloc(sizeof(t_stack));
 	if (!ptr)
 		return (NULL);
-	ptr->prev = NULL;
 	ptr->data = content;
 	ptr->next = NULL;
 	return (ptr);
@@ -37,7 +36,6 @@ void	ps_stackadd_back(t_stack **lst, t_stack *new)
 	while ((*lst)->next)
 		lst = &(*lst)->next;
 	(*lst)->next = new;
-	new->prev = *lst;
 
 }
 
