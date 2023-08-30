@@ -1,3 +1,8 @@
+RED			=	\033[0;31m
+GREEN		=	\033[0;32m
+BLUE		=	\033[1;34m
+NC			=	\033[0m
+
 OBJCS		:=	PS_utils.o \
 				PS_stack_utils.o \
 				MISC_PS_utils.o \
@@ -36,16 +41,12 @@ fclean		:	clean
 re			:	fclean all
 
 run			:	all
-	@echo "\n-------------- RESULT --------------"
+	@echo "$(BLUE)\n-------------- RESULT --------------$(NC)"
 	@./push_swap
-	@echo "------------------------------------\n"
+	@echo "$(BLUE)------------------------------------\n$(NC)"
 	@# @echo "cleaning up...\n"
 	@# @rm -f *.o push_swap
 
-RED			=	\033[0;31m
-GREEN		=	\033[0;32m
-BLUE		=	\033[1;34m
-NC			=	\033[0m
 
 push		: 	fclean
 	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
