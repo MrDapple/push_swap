@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/30 15:29:27 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/08/30 15:35:46 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_stack
 
 //	MISC
 void				print_stack(t_stack *stack, char type);
+
+// ALGORITHM
+
 
 // SORT 'A'
 void				ps_swap_a(t_stack **stack);

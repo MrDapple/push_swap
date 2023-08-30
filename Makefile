@@ -4,6 +4,7 @@ OBJCS		:=	PS_utils.o \
 				PS_A_utils.o \
 				PS_B_utils.o \
 				PS_2_utils.o \
+				PS_sort_algo.o \
 
 HEADER		:=	push_swap.h \
 
@@ -40,5 +41,12 @@ run			:	all
 	@echo "------------------------------------\n"
 	@# @echo "cleaning up...\n"
 	@# @rm -f *.o push_swap
+
+push		: fclean
+	git status
+	git add -A
+	git status
+	git commit -m "auto-update"
+	git push
 
 .PHONY		:	all clean fclean re run libft
