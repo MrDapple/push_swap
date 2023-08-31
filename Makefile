@@ -4,6 +4,7 @@ BLUE		=	\033[1;34m
 YELLOW		=	\033[1;33m
 DARKGREY	=	\033[1;30m
 LIGHTGREY	=	\033[0;37m
+BLACK		=	\033[0;30m
 NC			=	\033[0m
 
 OBJCS		:=	PS_utils.o \
@@ -55,15 +56,15 @@ run		:	all
 	@echo "$(BLUE)------------------------------------\n$(NC)"
 
 push		: 	fclean
-	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(DARKGREY)\n\n"
+	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(BLACK)\n\n"
 	@git status
-	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(DARKGREY)\n\n"
+	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(BLACK)\n\n"
 	@git add -A
 	@echo " $(GREEN)		- - -	ADD CHANGES OK!	- - - $(NC)\n\n"
-	@echo "$(BLUE)		- - -	COMMITING....	- - - $(DARKGREY)\n\n"
+	@echo "$(BLUE)		- - -	COMMITING....	- - - $(BLACK)\n\n"
 	@git commit -m "automatic update"
 	@echo " $(GREEN)		- - -	COMMIT OK!	- - - $(NC)\n\n"
-	@echo "$(BLUE)		- - -	PUSHING....	- - - $(DARKGREY)\n\n"
+	@echo "$(BLUE)		- - -	PUSHING....	- - - $(BLACK)\n\n"
 	@git push
 	@echo " $(GREEN)		 - - -	PUSH OK!	- - - $(NC)\n\n"
 	@echo "\n$(GREEN)= = = = = [UPDATE OK!] = = = = =$(NC)\n\n"
