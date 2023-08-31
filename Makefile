@@ -11,9 +11,8 @@ OBJCS		:=	PS_utils.o \
 				PS_A_utils.o \
 				PS_B_utils.o \
 				PS_2_utils.o \
+				PS_E_utils.o \
 				PS_sort_algo.o \
-
-HEADER		:=	push_swap.h \
 
 LIBPRINT	:=	libftprintf/libftprintf.a
 

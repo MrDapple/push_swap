@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/31 11:13:16 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/08/31 12:28:38 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ void				print_t_val(t_val *v);
 void				ps_sorting(t_stack **alph, t_stack **bert);
 t_val				*ps_set_values(t_stack **alph, t_stack **bert);
 
+// SORT 'E'
+void				ps_swap(t_stack **stack, char type);
+void				ps_rotate(t_stack **stack, char type);
+void				ps_revrot(t_stack **stack, char type);
+
+
 // SORT 'A'
-void				ps_swap_a(t_stack **stack);
 void				ps_push_a(t_stack **alph, t_stack **bert);
-void				ps_rotate_a(t_stack **stack);
-void				ps_revrot_a(t_stack **stack);
 
 // SORT 'B'
-void				ps_swap_b(t_stack **stack);
 void				ps_push_b(t_stack **alph, t_stack **bert);
-void				ps_rotate_b(t_stack **stack);
-void				ps_revrot_b(t_stack **stack);
 
 // SORT '2'
 void				ps_swap_2(t_stack **alph, t_stack **bert);

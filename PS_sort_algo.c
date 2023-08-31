@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:33:44 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/31 11:24:06 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/08/31 12:20:21 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void	ps_sorting(t_stack **alph, t_stack **bert)
 	t_val	*v;
 
 	v = ps_set_values(&*alph, &*bert);
+	
 }
