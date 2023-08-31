@@ -61,7 +61,7 @@ push		: 	fclean
 	@git status
 	@echo " $(GREEN)		- - -	ADD CHANGES OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	COMMITING....	- - - $(NC)\n\n"
-	@git commit -m "auto-update"
+	@git commit -m "automatic update"
 	@echo " $(GREEN)		- - -	COMMIT OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	PUSHING....	- - - $(NC)\n\n"
 	@git push
