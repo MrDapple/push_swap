@@ -55,11 +55,10 @@ run		:	all
 	@echo "$(BLUE)------------------------------------\n$(NC)"
 
 push		: 	fclean
-	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
+	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(DARKGREY)\n\n"
+	@git status
 	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(DARKGREY)\n\n"
-	@git status
 	@git add -A
-	@git status
 	@echo " $(GREEN)		- - -	ADD CHANGES OK!	- - - $(NC)\n\n"
 	@echo "$(BLUE)		- - -	COMMITING....	- - - $(DARKGREY)\n\n"
 	@git commit -m "automatic update"
