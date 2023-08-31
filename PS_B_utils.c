@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:09:40 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/30 15:25:55 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/08/31 10:49:01 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,30 +44,30 @@ void	ps_rotate_b(t_stack **stack)
 	ft_printf("rb\n");
 }
 
-void	ps_push_b(t_stack **a, t_stack **b)
+void	ps_push_b(t_stack **alph, t_stack **bert)
 {
 	t_stack	*tmp;
 
-	if (!*a)
+	if (!*alph)
 		return ((void)ft_printf("error(pb)\n"));
-	if (!(*a)->next)
+	if (!(*alph)->next)
 	{
-		(*a)->next = (*b);
-		(*b) = (*a);
-		*a = NULL;
+		(*alph)->next = (*bert);
+		(*bert) = (*alph);
+		*alph = NULL;
 		return ((void)ft_printf("pb\n"));
 	}
-	tmp = (*a)->next;
-	if (!*b)
+	tmp = (*alph)->next;
+	if (!*bert)
 	{
-		*b = (*a);
-		*a = tmp;
-		(*b)->next = NULL;
+		*bert = (*alph);
+		*alph = tmp;
+		(*bert)->next = NULL;
 		return ((void)ft_printf("pb\n"));
 	}
-	(*a)->next = (*b);
-	*b = (*a);
-	*a = tmp;
+	(*alph)->next = (*bert);
+	*bert = (*alph);
+	*alph = tmp;
 	ft_printf("pb\n");
 }
 
