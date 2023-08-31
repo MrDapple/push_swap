@@ -2,7 +2,8 @@ RED			=	\033[0;31m
 GREEN		=	\033[0;32m
 BLUE		=	\033[1;34m
 YELLOW		=	\033[1;33m
-GREY		=	\033[1;30m
+DARKGREY	=	\033[1;30m
+LIGHTGREY	=	\033[0;37m
 NC			=	\033[0m
 
 OBJCS		:=	PS_utils.o \
@@ -45,7 +46,7 @@ crun		:	all
 	@echo "$(BLUE)\n-------------- RESULT --------------$(NC)"
 	@./push_swap
 	@echo "$(BLUE)------------------------------------\n$(NC)"
-	@echo "$(YELLOW)cleaning up...$(NC)\n$(GREY)(psst... dont forget to 'cclean' every once in a while)$(NC)\n"
+	@echo "$(YELLOW)cleaning up...$(NC)\n$(LIGHTGREY)(psst... dont forget to 'cclean' every once in a while)$(NC)\n"
 	@rm -f *.o push_swap
 
 run		:	all
@@ -55,7 +56,7 @@ run		:	all
 
 push		: 	fclean
 	@echo "\n$(RED)= = = = = [UPDATING] = = = = =$(NC)\n\n"
-	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(NC)\n\n"
+	@echo "$(BLUE)		- - -	ADD CHANGES....	- - - $(DARKGREY)\n\n"
 	@git status
 	@git add -A
 	@git status
