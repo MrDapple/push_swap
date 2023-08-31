@@ -47,7 +47,7 @@ crun		:	all
 	@echo "$(BLUE)\n-------------- RESULT --------------$(NC)"
 	@./push_swap
 	@echo "$(BLUE)------------------------------------\n$(NC)"
-	@echo "$(YELLOW)cleaning up...$(NC)\n$(LIGHTGREY)(psst... dont forget to 'cclean' every once in a while)$(NC)\n"
+	@echo "$(YELLOW)cleaning up...$(NC)\n$(BLACK)(psst... dont forget to 'cclean' every once in a while)$(NC)\n"
 	@rm -f *.o push_swap
 
 run		:	all
