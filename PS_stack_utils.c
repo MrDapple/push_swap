@@ -19,7 +19,7 @@ t_stack	*ps_new_stack(int content)
 	ptr = malloc(sizeof(t_stack));
 	if (!ptr)
 		return (NULL);
-	ptr->r_index = -1;
+	ptr->idx = -1;
 	ptr->data = content;
 	ptr->next = NULL;
 	return (ptr);

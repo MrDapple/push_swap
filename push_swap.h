@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/01 11:48:43 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/01 14:59:21 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_stack
 {
 	int				data;
-	int				r_index;
+	int				idx;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -40,26 +40,28 @@ typedef struct s_values
 //			--[UTILS]--
 
 //	MISC (aka 'to delete after')
-void				print_stack(t_stack *stack, char type);
+void				print_stack(t_stack **stack, char type);
 void				print_t_val(t_val *v);
+t_val				*ps_set_values(t_stack **alph, t_stack **bert);
 
 // ALGORITHM
-void				ps_sorting(t_stack **alph, t_stack **bert);
-t_val				*ps_set_values(t_stack **alph, t_stack **bert);
-long				ps_stack_mid(t_stack **stack);
+void				ps_sorting(t_stack **alph_x, t_stack **bert_x, int max);
 
-// SORT 'E'
+// ALGO CALC
+int					ps_check_index(t_stack **stack);
+
+// COMMANDS 'E'
 void				ps_swap(t_stack **stack, char type);
 void				ps_rotate(t_stack **stack, char type);
 void				ps_revrot(t_stack **stack, char type);
 
-// SORT 'A'
+// COMMANDS 'A'
 void				ps_push_a(t_stack **alph, t_stack **bert);
 
-// SORT 'B'
+// COMMANDS 'B'
 void				ps_push_b(t_stack **alph, t_stack **bert);
 
-// SORT '2'
+// COMMANDS '2'
 void				ps_swap_2(t_stack **alph, t_stack **bert);
 void				ps_rotate_2(t_stack **alph, t_stack **bert);
 void				ps_revrot_2(t_stack **alph, t_stack **bert);

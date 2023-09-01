@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/01 11:47:45 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/01 15:01:15 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ int	push_swap(int argc, char **argv)
 	bert = NULL;
 	tab = ft_split(argv[1], ' ');
 	alph = ps_genstack(tab);
-	print_stack(alph, 'A');
-	print_stack(bert, 'B');
 	ps_pre_sort(tab, ps_tablen(tab), &alph);
-	print_stack(alph, 'A');
-	ps_sorting(&alph, &bert);
+	print_stack(&alph, 'A');
+	print_stack(&bert, 'B');
+	ps_sorting(&alph, &bert, ps_tablen(tab));
+	// ps_push_b(&alph, &bert);
+	print_stack(&alph, 'A');
+	print_stack(&bert, 'B');
 	free_list(&alph);
 	free_list(&bert);
 	free_tab(tab);
@@ -68,7 +70,7 @@ int	push_swap(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	argc = 2;
-	argv[1] = "-3 -2 -1 1 2 3";
+	argv[1] = "10 15 7 14 12 8 6 3 1 2 11 5 13 9 4";
 	push_swap(argc, argv);
 	// system("leaks push_swap");
 	return (0);
