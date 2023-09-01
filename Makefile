@@ -15,12 +15,13 @@ OBJCS		:=	PS_utils.o \
 				PS_2_utils.o \
 				PS_E_utils.o \
 				PS_sort_algo.o \
+				PS_pre_sort.o \
 
 LIBPRINT	:=	libftprintf/libftprintf.a
 
 NAME		:=	push_swap
 CFLAGS		?=	-Wall -Wextra -Werror
-SFLAGS		:=	-fsanitize=address
+SFLAGS		:=	-g3 -fsanitize=address
 
 all			:	libft $(NAME)
 

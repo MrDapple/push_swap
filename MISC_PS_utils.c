@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:43:17 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/31 11:24:48 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/01 11:38:39 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ void	print_stack(t_stack *stack, char type)
 	while (stack && stop < limit)
 	{
 		stop++;
-		// ft_printf("[%d]\n", stop);
+		ft_printf("[%d]\n", stop);
 		if (stack->data)
 			ft_printf("data = %i\n", stack->data);
 		else
 			ft_printf("data = NULL\n");
+		ft_printf("indx = %d\n", stack->r_index);
 		ft_printf("adrs = %p\n", stack);
 		ft_printf("next = %p\n\n", stack->next);
 		stack = stack->next;

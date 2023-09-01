@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:33:44 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/31 12:20:21 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/01 11:50:05 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,23 @@ t_val	*ps_set_values(t_stack **alph, t_stack **bert)
 		v->b_seclast = (*bert)->data;
 		v->b_last = (*bert)->next->data;
 	}
-	print_t_val(v);
 	return (v);
 }
 
+long	ps_stack_mid(t_stack **stack)
+{
+// 	long	tot;
+
+// 	while ((*stack)->next)
+// 	{
+// 		tot += (*stack)->data;
+// 		stack = &(*stack)->next;
+
+// 	}
+	if (stack)
+		return (1);
+	return (0);
+}
 void	ps_sorting(t_stack **alph, t_stack **bert)
 {
 	t_val	*v;
