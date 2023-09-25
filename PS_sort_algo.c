@@ -6,62 +6,89 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:33:44 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/01 15:02:02 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/25 18:12:25 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ps_check_index(t_stack **stack)
+void	ps_sort_5(t_stack **alph, t_stack **bert, int nbr)
 {
-	t_stack *tmp;
 	int	i;
 
-	tmp = *stack;
-	i = 1;
-	while (tmp)
+	i = ps_sim_r((*alph), nbr);
+	while ((*alph)->idx != nbr)
 	{
-		if (tmp->idx < i)
-			return (0);
-		i = tmp->idx;
-		tmp = tmp->next;
+		if (i == 1)
+			ps_rotate(alph, 'a');
+		else if (i == 2)
+			ps_revrot(alph, 'a');
 	}
-	return (1);
+	ps_push_b(alph, bert);
+	ps_sort_4(alph, bert, 1);
+	ps_push_a(alph, bert);
 }
 
-// int	ps_pivot(t_stack **stack)
-// {
-// 	int i;
-	
-// 	i = 0;
-
-// 	return (i);
-// }
-
-void	ps_sorting(t_stack **alph_x, t_stack **bert_x, int max)
+void	ps_sort_4(t_stack **alph, t_stack **bert, int nbr)
 {
-	t_stack *alph;
-	t_stack	*bert;
-	int	mid;
-	int i;
+	int	i;
 
-	alph = *alph_x;
-	bert = *bert_x;
-	mid = max / 2;
-	i = 0;
-	while (ps_check_index(&alph) == 0 && i <= 20)
+	i = ps_sim_r((*alph), nbr);
+	while ((*alph)->idx != nbr)
 	{
-		ft_printf("	A [%d|%d] M	= ", alph->idx, mid);
-		if (alph->idx < mid)
-			ps_push_b(&alph, &bert);
-		if (alph->idx >= mid)
-			ps_rotate(&alph, 'a');
-		// else
-		// 	mid = ps_pivot(&alph);
-		i++;
+		if (i == 1)
+			ps_rotate(alph, 'a');
+		else if (i == 2)
+			ps_revrot(alph, 'a');
 	}
+	ps_push_b(alph, bert);
+	ps_sort_3(alph, 'a');
+	ps_push_a(alph, bert);
+}
 
-	ft_printf("	is sorted = %d\n	MID = %d / 2 = %d\n", ps_check_index(&alph), max, mid);
+void	ps_sort_3(t_stack **stack, char type)
+{
+	if (((*stack)->idx) - 1 == (*stack)->next->idx &&
+		((*stack)->idx) + 1 == (*stack)->next->next->idx)
+		ps_swap(stack, type);
+	else if (((*stack)->idx) + 1 == (*stack)->next->idx &&
+			((*stack)->idx) - 1 == (*stack)->next->next->idx)
+		ps_revrot(stack, type);
+	else if (((*stack)->idx) - 2 == (*stack)->next->idx &&
+			((*stack)->idx) - 1 == (*stack)->next->next->idx)
+		ps_rotate(stack, type);
+	else if (((*stack)->idx) - 1 == (*stack)->next->idx &&
+			((*stack)->idx) - 2 == (*stack)->next->next->idx)
+	{
+		ps_swap(stack, type);
+		ps_revrot(stack, type);
+	}
+	else if (((*stack)->idx) + 2 == (*stack)->next->idx &&
+			((*stack)->idx) + 1 == (*stack)->next->next->idx)
+	{
+		ps_swap(stack, type);
+		ps_rotate(stack, type);
+	}
+}
+
+void	ps_sorting(t_stack **alph, t_stack **bert, int max)
+{
+	int	mid;
+
+	mid = max / 2;
+	if (ps_stack_len(alph) <= 5)
+	{
+		if (ps_stack_len(alph) == 3)
+			ps_sort_3(alph, 'a');
+		else if (ps_stack_len(alph) == 4)
+			ps_sort_4(alph, bert, 0);
+		else if (ps_stack_len(alph) == 5)
+			ps_sort_5(alph, bert, 0);
+	}
+	//	else
+	//	ps_radix
+	ft_printf("	is sorted = %d\n	MID = %d / 2 = %d\n", ps_check_index(alph),
+					max, mid);
 	if (alph && bert)
 		return ;
 }

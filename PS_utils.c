@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/01 15:01:15 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/25 17:27:47 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	push_swap(int argc, char **argv)
 	print_stack(&alph, 'A');
 	print_stack(&bert, 'B');
 	ps_sorting(&alph, &bert, ps_tablen(tab));
+	// ps_swap(&alph, 'a');
 	// ps_push_b(&alph, &bert);
 	print_stack(&alph, 'A');
 	print_stack(&bert, 'B');
@@ -70,7 +71,7 @@ int	push_swap(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	argc = 2;
-	argv[1] = "10 15 7 14 12 8 6 3 1 2 11 5 13 9 4";
+	argv[1] = "12 40 95 5 3";
 	push_swap(argc, argv);
 	// system("leaks push_swap");
 	return (0);

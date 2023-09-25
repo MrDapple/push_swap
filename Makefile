@@ -16,6 +16,9 @@ OBJCS		:=	PS_utils.o \
 				PS_E_utils.o \
 				PS_sort_algo.o \
 				PS_pre_sort.o \
+				PS_sort_calc.o \
+				PS_simulate.o \
+				PS_radix_utils.o \
 
 LIBPRINT	:=	libftprintf/libftprintf.a
 

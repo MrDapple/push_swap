@@ -6,18 +6,16 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:45 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/01 14:24:56 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/25 16:37:39 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
 void	ps_index(t_stack **stock, int *index, int size)
 {
-	int	i;
-	t_stack *stack;
+	int		i;
+	t_stack	*stack;
 
 	stack = *stock;
 	while (stack)
@@ -26,7 +24,7 @@ void	ps_index(t_stack **stock, int *index, int size)
 		while (i < size && stack->idx == -1)
 		{
 			if (stack->data == index[i])
-				stack->idx = i + 1;
+				stack->idx = i;
 			i++;
 		}
 		stack = stack->next;
