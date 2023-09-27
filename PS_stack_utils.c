@@ -12,6 +12,31 @@
 
 #include "push_swap.h"
 
+char **ps_tabgen(char **argv)
+{
+	char	**tab;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (argv[i])
+		i++;
+	tab = malloc(sizeof(char *) * i);
+	while (j < i - 1)
+	{
+		tab[j] = malloc(sizeof(char) * (ft_strlen(argv[j + 1]) + 1));
+		j++;
+	}
+	i--;
+	while (i >= 0)
+	{
+		tab[i] = argv[i + 1];
+		i--;
+	}
+	return (tab);
+}
+
 t_stack	*ps_new_stack(int content)
 {
 	t_stack *ptr;

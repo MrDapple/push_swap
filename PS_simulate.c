@@ -6,13 +6,13 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:38:51 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/25 17:21:37 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 11:28:45 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ps_sim_r(t_stack *input, int nbr)
+int		ps_sim_r(t_stack *input, int nbr)
 {
 	t_stack *stack;
 	int		r;

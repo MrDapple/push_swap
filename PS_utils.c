@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/25 17:27:47 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:54:06 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	free_list(t_stack **stack)
 {
 	t_stack	*next_tmp;
 
+	// if (!(*stack))
+	// 	return ((void)ft_printf("	ERROR: nothing to free\n"));
 	if (!(*stack))
-		return ((void)ft_printf("	ERROR: nothing to free\n"));
+		return ((void)NULL);
 	while ((*stack))
 	{
 		next_tmp = (*stack)->next;
@@ -40,39 +42,36 @@ void	free_tab(char **tab)
 	}
 }
 
-int	push_swap(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*alph;
 	t_stack	*bert;
 	char	**tab;
 
 	alph = NULL;
-	if (argc != 2)
+	if (argc == 1)
 		return (0);
 	bert = NULL;
-	tab = ft_split(argv[1], ' ');
+	tab = ps_tabgen(argv);
 	alph = ps_genstack(tab);
 	ps_pre_sort(tab, ps_tablen(tab), &alph);
-	print_stack(&alph, 'A');
-	print_stack(&bert, 'B');
+	// print_stack(&alph, 'A');
+	// print_stack(&bert, 'B');
 	ps_sorting(&alph, &bert, ps_tablen(tab));
-	// ps_swap(&alph, 'a');
-	// ps_push_b(&alph, &bert);
-	print_stack(&alph, 'A');
-	print_stack(&bert, 'B');
+	// print_stack(&alph, 'A');
+	// print_stack(&bert, 'B');
 	free_list(&alph);
 	free_list(&bert);
-	free_tab(tab);
 	return (0);
 }
 
 // if prev=null for check begin list
 
-int	main(int argc, char **argv)
-{
-	argc = 2;
-	argv[1] = "12 40 95 5 3";
-	push_swap(argc, argv);
-	// system("leaks push_swap");
-	return (0);
-}
+// int	main(int argc, char **argv)
+// {
+// 	argc = 2;
+// 	argv[1] = "5 3 1 2 4";
+// 	push_swap(argc, argv);
+// 	// system("leaks push_swap");
+// 	return (0);
+// }

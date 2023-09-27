@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:43:17 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/01 15:00:36 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/26 13:52:10 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	print_stack(t_stack **s, char type)
 		i = 1;
 	stop = 0;
 	limit = 20;
-	if (!s)
+	if (!s[0])
 		return ((void)ft_printf("\n	call #%d [%c]\n	ERROR: list empty or non-existant\n\n", i++, type));
 	stack = *s;
 	ft_printf("\n	call #%d [%c]\n\n", i++, type);

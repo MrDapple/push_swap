@@ -9,7 +9,6 @@ NC			=	\033[0m
 
 OBJCS		:=	PS_utils.o \
 				PS_stack_utils.o \
-				MISC_PS_utils.o \
 				PS_A_utils.o \
 				PS_B_utils.o \
 				PS_2_utils.o \
@@ -19,6 +18,7 @@ OBJCS		:=	PS_utils.o \
 				PS_sort_calc.o \
 				PS_simulate.o \
 				PS_radix_utils.o \
+				MISC_PS_utils.o \
 
 LIBPRINT	:=	libftprintf/libftprintf.a
 
@@ -29,10 +29,10 @@ SFLAGS		:=	-g3 -fsanitize=address
 all			:	libft $(NAME)
 
 $(NAME)		:	$(OBJCS)
-	@${CC} ${CFLAGS} $(OBJCS) $(LIBPRINT) -o ${NAME}
+	${CC} ${CFLAGS} $(OBJCS) $(LIBPRINT) -o ${NAME}
 
 %.o			:	%.c
-	@$(CC) -c $(CFLAGS) -o $@ $^
+	$(CC) -c $(CFLAGS) -o $@ $^
 
 libft		:
 	@make -C libftprintf

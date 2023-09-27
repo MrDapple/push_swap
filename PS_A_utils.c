@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 09:59:38 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/01 14:14:07 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 11:34:20 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	ps_push_a(t_stack **alph, t_stack **bert)
 	(*bert)->next = (*alph);
 	*alph = (*bert);
 	*bert = tmp;
-	ft_printf("pb\n");
+	ft_printf("pa\n");
 }
 
