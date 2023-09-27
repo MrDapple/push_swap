@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:33:44 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 15:01:39 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 17:55:24 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ps_sort_5(t_stack **alph, t_stack **bert, int nbr)
 	int	i;
 
 	i = ps_sim_r((*alph), nbr);
-	if ((*alph)->idx - 1 == (*alph)->next->idx)
+	if ((*alph)->idx - 1 == nbr)
 		ps_swap(alph, 'a');
 	else
 	{
@@ -28,22 +28,21 @@ void	ps_sort_5(t_stack **alph, t_stack **bert, int nbr)
 			else if (i == 2)
 				ps_revrot(alph, 'a');
 		}
-		if (ps_check_index(*alph) == 0)
-		{
-			ps_push_b(alph, bert);
-			ps_sort_4(alph, bert, 1);
-			ps_push_a(alph, bert);
-		}
+	}
+	if (ps_check_index(*alph) == 0)
+	{
+		ps_push_b(alph, bert);
+		ps_sort_4(alph, bert, 1);
+		ps_push_a(alph, bert);
 	}
 }
 
-// include "type" in vars
 void	ps_sort_4(t_stack **alph, t_stack **bert, int nbr)
 {
 	int	i;
 
 	i = ps_sim_r((*alph), nbr);
-	if ((*alph)->idx - 1 == (*alph)->next->idx)
+	if ((*alph)->idx - 1 == nbr)
 		ps_swap(alph, 'a');
 	else
 	{
@@ -54,12 +53,12 @@ void	ps_sort_4(t_stack **alph, t_stack **bert, int nbr)
 			else if (i == 2)
 				ps_revrot(alph, 'a');
 		}
-		if (ps_check_index(*alph) == 0)
-		{
-			ps_push_b(alph, bert);
-			ps_sort_3(alph, 'a');
-			ps_push_a(alph, bert);
-		}
+	}
+	if (ps_check_index(*alph) == 0)
+	{
+		ps_push_b(alph, bert);
+		ps_sort_3(alph, 'a');
+		ps_push_a(alph, bert);
 	}
 }
 
@@ -94,18 +93,18 @@ void	ps_sort_3(t_stack **stack, char type)
 	}
 }
 
-void	ps_sorting(t_stack **alph, t_stack **bert, int max)
+void	ps_sorting(t_stack **alph, t_stack **bert)
 {
-	int	mid;
 	int len;
 
-	mid = max / 2;
 	len = ps_stack_len(*alph);
 	if (len <= 5)
 	{
+		if (len == 2 && ps_check_index(*alph) == 0)
+			ps_swap(alph, 'a');
 		if (len == 3)
 			ps_sort_3(alph, 'a');
-		else if (len == 4)
+		if (len == 4)
 			ps_sort_4(alph, bert, 0);
 		if (len == 5)
 			ps_sort_5(alph, bert, 0);

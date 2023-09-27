@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:45 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/25 16:37:39 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 15:34:35 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,29 @@ int	ps_tablen(char **tab)
 	return (i);
 }
 
+int	ps_check_index_dup(int *index)
+{
+	int *check;
+	int	i;
+	int	j;
+
+	check = index;
+	i = 0;
+	j = 1;
+	while (index[i])
+	{
+		while (check[j + i])
+		{
+			if (check[j + i] == index[i])
+				return (0);
+			j++;
+		}
+		i++;
+		j = i;
+	}
+	return (1);
+}
+
 int	ps_pre_sort(char **tab, int size, t_stack **stack)
 {
 	int	*index;
@@ -75,5 +98,5 @@ int	ps_pre_sort(char **tab, int size, t_stack **stack)
 		j++;
 	}
 	ps_index(stack, index, ps_tablen(tab));
-	return (0);
+	return (ps_check_index_dup(index));
 }
