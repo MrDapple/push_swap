@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:37:18 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/31 10:51:48 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 18:12:04 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ void	ps_revrot_2(t_stack **alph, t_stack **bert)
 	t_stack	*second;
 	t_stack	*last;
 
-	if ((!*alph || !(*alph)->next) ||
-		(!*bert || !(*bert)->next))
-		return (void)ft_printf("error(rrr)\n");
+	if ((!*alph || !(*alph)->next) || (!*bert || !(*bert)->next))
+		return ((void)ft_printf("error(rrr)\n"));
 	second = *alph;
 	while (second->next->next)
 		second = second->next;
@@ -41,8 +40,7 @@ void	ps_rotate_2(t_stack **alph, t_stack **bert)
 {
 	t_stack	*tmp;
 
-	if ((!*alph || !(*alph)->next) ||
-		(!*bert || !(*bert)->next))
+	if ((!*alph || !(*alph)->next) || (!*bert || !(*bert)->next))
 		return ((void)ft_printf("error(rr)\n"));
 	tmp = (*alph);
 	*alph = (*alph)->next;
@@ -64,8 +62,8 @@ void	ps_swap_2(t_stack **alph, t_stack **bert)
 	t_stack	*first;
 	t_stack	*second;
 
-	if ((*alph == NULL || (*alph)->next == NULL) ||
-		(*bert == NULL || (*bert)->next == NULL))
+	if ((*alph == NULL || (*alph)->next == NULL) || (*bert == NULL
+			|| (*bert)->next == NULL))
 		return ((void)ft_printf("error(ss)\n"));
 	first = *alph;
 	second = (*alph)->next;

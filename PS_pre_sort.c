@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:45 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 15:34:35 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 18:13:31 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	ps_tablen(char **tab)
 
 int	ps_check_index_dup(int *index)
 {
-	int *check;
+	int	*check;
 	int	i;
 	int	j;
 

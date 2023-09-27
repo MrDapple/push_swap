@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 15:52:39 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 18:23:05 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	free_list(t_stack **stack)
 {
 	t_stack	*next_tmp;
 
-	// if (!(*stack))
-	// 	return ((void)ft_printf("	ERROR: nothing to free\n"));
 	if (!(*stack))
-		return ((void)NULL);
+		return ;
 	while ((*stack))
 	{
 		next_tmp = (*stack)->next;
@@ -60,23 +58,14 @@ int	main(int argc, char **argv)
 		free_list(&bert);
 		return (ft_printf("error\n"));
 	}
-	// print_stack(&alph, 'A');
-	// print_stack(&bert, 'B');
+	print_stack(&alph, 'A');
+	print_stack(&bert, 'B');
 	ps_sorting(&alph, &bert);
-	// print_stack(&alph, 'A');
-	// print_stack(&bert, 'B');
+	print_stack(&alph, 'A');
+	print_stack(&bert, 'B');
 	free_list(&alph);
 	free_list(&bert);
 	return (0);
 }
 
 // if prev=null for check begin list
-
-// int	main(int argc, char **argv)
-// {
-// 	argc = 2;
-// 	argv[1] = "5 3 1 2 4";
-// 	push_swap(argc, argv);
-// 	// system("leaks push_swap");
-// 	return (0);
-// }

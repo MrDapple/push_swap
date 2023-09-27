@@ -39,7 +39,7 @@ libft		:
 	@make -C libftprintf
 
 clean		:
-	@rm -f *.o
+	@rm -f $(OBJCS)
 	@rm -f push_swap
 
 fclean		:	clean
@@ -55,7 +55,7 @@ crun		:	all
 	@echo "$(YELLOW)cleaning up...$(NC)\n$(BLACK)(psst... dont forget to 'cclean' every once in a while)$(NC)\n"
 	@rm -f *.o push_swap
 
-run		:	all
+run			:	all
 	@echo "$(BLUE)\n-------------- RESULT --------------$(NC)"
 	@./push_swap
 	@echo "$(BLUE)------------------------------------\n$(NC)"

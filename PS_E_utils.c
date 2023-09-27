@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 12:27:46 by anvoets           #+#    #+#             */
-/*   Updated: 2023/08/31 12:29:43 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 18:31:47 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ps_revrot(t_stack **stack, char type)
 	t_stack	*last;
 
 	if (!*stack || !(*stack)->next)
-		return (void)ft_printf("error(rr%c)\n", type);
+		return ((void)ft_printf("error(rr%c)\n", type));
 	second = *stack;
 	while (second->next->next)
 		second = second->next;
@@ -49,7 +49,7 @@ void	ps_rotate(t_stack **stack, char type)
 	t_stack	*tmp;
 
 	if (!*stack || !(*stack)->next)
-		return (void)ft_printf("error(r%c)\n", type);
+		return ((void)ft_printf("error(r%c)\n", type));
 	tmp = (*stack);
 	*stack = (*stack)->next;
 	while ((*stack)->next)
