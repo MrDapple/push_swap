@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/26 11:17:02 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/27 15:01:15 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_val				*ps_set_values(t_stack **alph, t_stack **bert);
 void				ps_sorting(t_stack **alph, t_stack **bert, int max);
 void				ps_sort_3(t_stack **stack, char type);
 void				ps_sort_4(t_stack **alph, t_stack **bert, int nbr);
+void				ps_sort_5(t_stack **alph, t_stack **bert, int nbr);
 
 // ALGO CALC
 int					ps_check_index(t_stack *stack);
@@ -79,7 +80,7 @@ int					ps_pre_sort(char **tab, int size, t_stack **stack);
 int					ps_tablen(char **tab);
 void				ps_swap_int(int *a, int *b);
 void				ps_index(t_stack **stock, int *index, int size);
-char 				**ps_tabgen(char **argv);
+char				**ps_tabgen(char **argv);
 
 // STACK UTILS
 t_stack				*ps_genstack(char **args);
