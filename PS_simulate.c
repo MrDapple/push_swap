@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:38:51 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 18:17:06 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/28 12:28:23 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	ps_sim_r(t_stack *input, int nbr)
 	int		temp;
 
 	stack = input;
-	r = -1;
-	rr = -1;
+	r = 0;
+	rr = 0;
 	temp = 0;
 	while ((stack)->idx != nbr && ++r >= 0)
 		ps_rotate_sim(&stack);

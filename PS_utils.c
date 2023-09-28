@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 18:23:05 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/09/28 12:29:23 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ int	main(int argc, char **argv)
 		free_list(&bert);
 		return (ft_printf("error\n"));
 	}
-	print_stack(&alph, 'A');
-	print_stack(&bert, 'B');
+	// print_stack(&alph, 'A');
+	// print_stack(&bert, 'B');
 	ps_sorting(&alph, &bert);
-	print_stack(&alph, 'A');
-	print_stack(&bert, 'B');
+	// print_stack(&alph, 'A');
+	// print_stack(&bert, 'B');
 	free_list(&alph);
 	free_list(&bert);
 	return (0);
