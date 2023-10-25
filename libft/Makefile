@@ -1,5 +1,3 @@
-
-
 SRCS		:=	ft_atoi.c \
 				ft_isalpha.c \
 				ft_isprint.c \
@@ -52,19 +50,23 @@ SRCS		:=	ft_atoi.c \
 				ft_printf_void.c \
 				ft_printf_unsigned.c \
 				ft_printf_lower_hex.c \
-				ft_printf_upper_hex.c \
+				ft_printf_upper_hex.c 
+			
+OBJS		:= $(SRCS:.c=.o)
 
-NAME		:=	libftprintf.a
+NAME		:=	libft.a
 CFLAGS		?=	-Wall -Wextra -Werror
-OBJCS		:=	$(SRCS:.c=.o)
 
-all			:	$(NAME)
+all			:	$(OBJS) $(NAME)
 
-$(NAME)		:	$(OBJCS)
-	ar -rcs $(NAME) $(OBJCS)
+$(NAME)		:	$(OBJS)
+	ar -rcs $(NAME) $(OBJS)
+
+%.o			:	%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean		:
-	rm -f $(OBJCS)
+	rm -f $(OBJS)
 
 fclean		:	clean
 	rm -f $(NAME)

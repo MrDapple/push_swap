@@ -6,11 +6,11 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:59:03 by anvoets           #+#    #+#             */
-/*   Updated: 2023/06/21 10:29:27 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/11 12:05:22 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*get_next_line(int fd)
 {

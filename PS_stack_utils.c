@@ -6,38 +6,43 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:14:08 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 18:19:52 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/25 14:28:15 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**ps_tabgen(char **argv)
+int	*ps_tabgen(char **argv)
 {
-	char	**tab;
+	int		*tab;
 	int		i;
 	int		j;
 
 	i = 0;
-	j = 0;
-	while (argv[i])
+	j = -1;
+	while (argv[i + 1])
+	{
+		while (argv[i + 1][j + 1])
+		{
+			if (ft_isdigit(argv[i + 1][++j]) == 0)
+				return (NULL);
+		}
 		i++;
-	tab = malloc(sizeof(char *) * i);
-	while (j < i - 1)
-	{
-		tab[j] = malloc(sizeof(char) * (ft_strlen(argv[j + 1]) + 1));
-		j++;
+		j = -1;
 	}
-	i--;
-	while (i >= 0)
+	tab = malloc(sizeof(int) * i);
+	if (!tab)
+		return (NULL);
+	i = 0;
+	while (argv[i + 1])
 	{
-		tab[i] = argv[i + 1];
-		i--;
+		tab[i] = ft_atoi(argv[i + 1]);
+		i++;
 	}
 	return (tab);
 }
 
-t_stack	*ps_new_stack(int content)
+t_stack	*ps_new_node(int content)
 {
 	t_stack	*ptr;
 
@@ -64,7 +69,7 @@ void	ps_stackadd_back(t_stack **lst, t_stack *new)
 	(*lst)->next = new;
 }
 
-t_stack	*ps_genstack(char **args)
+t_stack	*ps_genstack(int *args, int len)
 {
 	t_stack	*stack;
 	t_stack	*temp;
@@ -72,9 +77,9 @@ t_stack	*ps_genstack(char **args)
 
 	stack = NULL;
 	i = 0;
-	while (args[i])
+	while (i < len)
 	{
-		temp = ps_new_stack(ft_atoi(args[i]));
+		temp = ps_new_node(args[i]);
 		ps_stackadd_back(&stack, temp);
 		i++;
 	}

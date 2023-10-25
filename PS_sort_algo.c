@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:33:44 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/28 12:28:48 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/24 14:08:55 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	ps_sort_5(t_stack **alph, t_stack **bert, int nbr)
 				ps_revrot(alph, 'a');
 		}
 	}
-	if (ps_check_index(*alph) == 0)
+	if (ps_check_index(*alph) == NO)
 	{
 		ps_push_b(alph, bert);
-		ps_sort_4(alph, bert, 1);
+		ps_sort_4(alph, bert, nbr + 1);
 		ps_push_a(alph, bert);
 	}
 }
@@ -54,7 +54,7 @@ void	ps_sort_4(t_stack **alph, t_stack **bert, int nbr)
 				ps_revrot(alph, 'a');
 		}
 	}
-	if (ps_check_index(*alph) == 0)
+	if (ps_check_index(*alph) == NO)
 	{
 		ps_push_b(alph, bert);
 		ps_sort_3(alph, 'a');
@@ -103,6 +103,6 @@ void	ps_sorting(t_stack **alph, t_stack **bert)
 		else if (len == 5)
 			ps_sort_5(alph, bert, 0);
 	}
-	if (alph && bert)
-		return ;
+	else
+		ps_sort_plus(alph, bert);
 }

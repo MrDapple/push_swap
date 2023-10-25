@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:37:11 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 18:19:44 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/24 14:19:17 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	ps_check_index(t_stack *stack)
 	while (stack)
 	{
 		if (stack->idx < i)
-			return (0);
+			return (NO);
 		i = stack->idx;
 		stack = stack->next;
 	}
-	return (1);
+	return (YES);
 }
 
 int	ps_stack_len(t_stack *stack)

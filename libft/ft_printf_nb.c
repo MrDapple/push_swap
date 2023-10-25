@@ -6,36 +6,11 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:38:37 by anvoets           #+#    #+#             */
-/*   Updated: 2023/05/11 13:25:33 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/11 12:06:15 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-// long	ft_printf_nb(long n)
-// {
-// 	int		buf;
-// 	char	*str;
-
-// 	buf = 0;
-// 	if (n == -2147483648)
-// 	{
-// 		buf = write(1, "-2147483648", 11);
-// 		if (buf == -1)
-// 			return (buf);
-// 		return (11);
-// 	}
-// 	str = ft_itoa(n);
-// 	if (!str)
-// 	{
-// 		free(str);
-// 		return (-1);
-// 	}
-// 	buf = ft_printf_str(str);
-// 	if (buf == -1)
-// 		return (buf);
-// 	return (ft_strlen(str));
-// }
+#include "libft.h"
 
 static int	av_nb_len(long n)
 {

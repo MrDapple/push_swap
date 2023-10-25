@@ -6,11 +6,11 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:59:55 by anvoets           #+#    #+#             */
-/*   Updated: 2023/06/19 14:38:58 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/24 13:40:29 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 size_t	av_check_nl(char *str)
 {

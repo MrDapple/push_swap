@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:45 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 18:13:31 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/24 14:00:00 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ void	ps_swap_int(int *a, int *b)
 	*a = tmp;
 }
 
-int	ps_tablen(char **tab)
+int	ps_tablen(int *tab)
 {
 	int	i;
 
-	i = 0;
-	while (tab && tab[i])
+	i = 1;
+	while (tab[i])
 		i++;
 	return (i);
 }
 
-int	ps_check_index_dup(int *index)
+int	ps_check_index_dup(int *index, int len)
 {
 	int	*check;
 	int	i;
@@ -59,12 +59,14 @@ int	ps_check_index_dup(int *index)
 	check = index;
 	i = 0;
 	j = 1;
-	while (index[i])
+	while (i < len)
 	{
-		while (check[j + i])
+		while ((j + i) < len)
 		{
 			if (check[j + i] == index[i])
+			{
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -73,7 +75,7 @@ int	ps_check_index_dup(int *index)
 	return (1);
 }
 
-int	ps_pre_sort(char **tab, int size, t_stack **stack)
+int	ps_pre_sort(int *tab, int size, t_stack **stack)
 {
 	int	*index;
 	int	i;
@@ -81,11 +83,8 @@ int	ps_pre_sort(char **tab, int size, t_stack **stack)
 
 	i = -1;
 	j = 0;
-	index = malloc(sizeof(int) * size);
-	if (!index)
-		return (0);
-	while (tab && tab[++i])
-		index[i] = ft_atoi(tab[i]);
+	// index = malloc (sizeof(int) * size);
+		index = tab;
 	while (j < size)
 	{
 		i = j + 1;
@@ -97,6 +96,8 @@ int	ps_pre_sort(char **tab, int size, t_stack **stack)
 		}
 		j++;
 	}
-	ps_index(stack, index, ps_tablen(tab));
-	return (ps_check_index_dup(index));
+	ps_index(stack, index, size);
+	j = ps_check_index_dup(index, size);
+	// free(index);
+	return (j);
 }

@@ -6,16 +6,14 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 17:53:38 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/24 13:59:42 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libftprintf/ft_printf.h"
-# include "libftprintf/get_next_line.h"
-# include "libftprintf/libft.h"
+# include "libft/libft.h"
 # include <stdlib.h>
 
 typedef struct s_stack
@@ -44,7 +42,15 @@ void				print_stack(t_stack **stack, char type);
 void				print_t_val(t_val *v);
 t_val				*ps_set_values(t_stack **alph, t_stack **bert);
 
-//	ALGORITHM
+//	SORT PLUS
+void				ps_sort_plus(t_stack **alph, t_stack **bert);
+int					ps_act(int code, int nbr, t_stack **alph, t_stack **bert);
+
+// SORT PLUS UTILS
+int					ps_calccost(int nbr, t_stack **alph, t_stack **bert);
+int					ps_push_calc(t_stack **alph, t_stack **bert);
+
+//	SORT 3-%
 void				ps_sorting(t_stack **alph, t_stack **bert);
 void				ps_sort_3(t_stack **stack, char type);
 void				ps_sort_4(t_stack **alph, t_stack **bert, int nbr);
@@ -76,21 +82,20 @@ void				ps_rotate_sim(t_stack **stack);
 void				ps_revrot_sim(t_stack **stack);
 
 //	ASSORTED UTILS
-int					ps_pre_sort(char **tab, int size, t_stack **stack);
-int					ps_tablen(char **tab);
+int					ps_pre_sort(int *tab, int size, t_stack **stack);
+int					ps_tablen(int *tab);
 void				ps_swap_int(int *a, int *b);
 void				ps_index(t_stack **stock, int *index, int size);
-char				**ps_tabgen(char **argv);
-int					ps_check_index_dup(int *index);
+int					*ps_tabgen(char **argv);
+int					ps_check_index_dup(int *index, int len);
 
 //	STACK UTILS
-t_stack				*ps_genstack(char **args);
-t_stack				*ps_new_stack(int content);
+t_stack				*ps_genstack(int *args, int len);
+t_stack				*ps_new_node(int content);
 void				ps_stackadd_back(t_stack **lst, t_stack *new);
 void				free_list(t_stack **stack);
 
 //	FREE
-void				free_tab(char **tab);
 void				free_list(t_stack **stack);
 
 #endif
