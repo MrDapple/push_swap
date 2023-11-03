@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PS_sort_plus.c                                     :+:      :+:    :+:   */
+/*   PS_sort_algo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:41:09 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/31 17:05:01 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/03 12:05:08 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ps_sort_plus(t_stack **alph, t_stack **bert)
 {
