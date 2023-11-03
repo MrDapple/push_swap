@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:41:09 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 16:27:04 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/03 16:49:04 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ void	ps_radix(t_stack **alph, t_stack **bert)
 	while (++i < max_bits)
 	{
 		j = -1;
-		while (++j < len)
+		while (++j < len && ps_is_sorted(*alph) == 0)
 		{
 			num = *alph;
+			// if ((num->idx >> i) & 1)
+			// 	ps_rot_direct(alph, len, 'a');
 			if ((num->idx >> i) & 1)
 				ps_rotate(alph, 'a');
 			else
@@ -83,20 +85,20 @@ void	ps_sort_algo(t_stack **alph, t_stack **bert)
 		ps_radix(alph, bert);
 }
 
-int	ps_is_sorted(t_stack *list)
+int	ps_is_sorted(t_stack *stack)
 {
-	if (list == NULL || list->next == NULL)
+	if (stack == NULL || stack->next == NULL)
 		return (1);
-	while (list->next != NULL)
+	while (stack->next != NULL)
 	{
-		if (list->data > list->next->data)
+		if (stack->data > stack->next->data)
 			return (0);
-		list = list->next;
+		stack = stack->next;
 	}
 	return (1);
 }
 
-int	ps_find_min_index(t_stack *list)
+int	ps_find_min_index(t_stack *stack)
 {
 	int	min_value;
 	int	min_idx;
@@ -105,16 +107,16 @@ int	ps_find_min_index(t_stack *list)
 
 	min_idx = 0;
 	current_idx = 0;
-	min_value = list->idx;
-	while (list)
+	min_value = stack->idx;
+	while (stack)
 	{
-		value = list->idx;
+		value = stack->idx;
 		if (value < min_value)
 		{
 			min_value = value;
 			min_idx = current_idx;
 		}
-		list = list->next;
+		stack = stack->next;
 		current_idx++;
 	}
 	return (min_idx);
