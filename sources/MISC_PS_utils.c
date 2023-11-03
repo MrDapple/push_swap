@@ -6,11 +6,11 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:43:17 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 18:21:26 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/31 16:34:37 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 t_val	*ps_set_values(t_stack **alph, t_stack **bert)
 {
@@ -65,7 +65,7 @@ void	print_stack(t_stack **s, char type)
 		return ((void)ft_printf("\n	call #%d [%c]\n	ERROR: list empty or non-existant\n\n", i++, type));
 	stack = *s;
 	ft_printf("\n	call #%d [%c]\n\n", i++, type);
-	while (stack && stop < limit)
+	while (stack && stop < limit && i < limit)
 	{
 		stop++;
 		// ft_printf("[%d]\n", stop);
@@ -79,6 +79,9 @@ void	print_stack(t_stack **s, char type)
 		stack = stack->next;
 		ft_printf("\n");
 	}
-	if (stop == limit)
-		ft_printf("	STOP: infinite loop protection (%d/%d)\n\n", stop, limit);
+	if (stop == limit || i == limit)
+	{
+		ft_printf("	STOP: infinite loop protection (S[%d]/I[%d] == %d)\n\n", stop, i, limit);
+		exit (EXIT_FAILURE);
+	}
 }

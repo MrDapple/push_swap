@@ -1,20 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PS_sort_plus_utils.c                               :+:      :+:    :+:   */
+/*   PS_simulate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 18:04:23 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/18 15:29:31 by anvoets          ###   ########.fr       */
+/*   Created: 2023/09/25 16:38:51 by anvoets           #+#    #+#             */
+/*   Updated: 2023/10/31 17:05:25 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	ps_push_calc(t_stack **alph, t_stack **bert)
-{
-	if (alph && bert)
-		return (1);
-	return (0);
-}

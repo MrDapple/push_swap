@@ -6,11 +6,11 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:37:18 by anvoets           #+#    #+#             */
-/*   Updated: 2023/09/27 18:12:04 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:21:00 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ps_revrot_2(t_stack **alph, t_stack **bert)
 {

@@ -6,11 +6,11 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:41:09 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/24 14:21:29 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:05:01 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void	ps_sort_plus(t_stack **alph, t_stack **bert)
 {
@@ -20,43 +20,54 @@ void	ps_sort_plus(t_stack **alph, t_stack **bert)
 
 	min = 0;
 	len_a = ps_stack_len(*alph);
-	if (ps_stack_len(*alph) <= 5)
-		ps_sorting(alph, bert);
 	while (ps_check_index(*alph) == NO)
 	{
-		if (ps_stack_len(*alph) <= 5)
+		if (len_a <= 5)
 		{
 			ps_sort_5(alph, bert, min);
-			while (ps_stack_len(*alph) < len_a)
+			while (min-- != 0)
 			{
-				ft_printf("	[%d]\n", ps_stack_len(*alph));
 				ps_push_a(alph, bert);
 			}
 		}
-		else
+		else if (len_a >= 5 && len_a <= 10)
 		{
-			ps_push_b(alph, bert);
-			// ps_act(ps_calccost(min, alph, bert), min, alph, bert);
-			/*min = */
-			min++;
+			while ((*alph)->idx >= 5)
+				ps_push_b(alph, bert);
 		}
+		else
+			min += ps_act(ps_calccost(min, *alph, *bert), min, 10, alph, bert);
+		len_a = ps_stack_len(*alph);
 	}
 }
 
-int	ps_act(int code, int nbr, t_stack **alph, t_stack **bert)
+int	ps_act(int code, int nbr, int size, t_stack **alph, t_stack **bert)
 {
-		ps_push_b(alph, bert);
-	if (code && nbr && alph && bert)
+	int	ps;
+
+	ps = 1;
+	while ((*alph)->idx != nbr && size)
 	{
-		return (1);
+		if (code == ROTATE)
+			ps_rotate(alph, 'a');
+		else if (code == REVROT)
+			ps_revrot(alph, 'a');
+		else if (code == REVREV)
+			ps_revrot_2(alph, bert);
+		usleep(100000);
 	}
-	return (1);
+	if (code >= 1 && code <= 3)
+		ps_push_b(alph, bert);
+	return (ps);
 }
 
-int	ps_calccost(int nbr, t_stack **alph, t_stack **bert)
+int	ps_calccost(int nbr, t_stack *alph, t_stack *bert)
 {
-	if (nbr && alph && bert)
-		return (0);
-	return (0);
-	// ps_sim_r
+	if (ps_r_cost(nbr, alph) < ps_rr_cost(nbr, alph) && bert)
+	{
+		if (ps_rrr_cost(nbr, alph, bert) < ps_r_cost(nbr, alph))
+			return (REVREV);
+		return (ROTATE);
+	}
+	return (REVROT);
 }

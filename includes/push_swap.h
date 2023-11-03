@@ -6,14 +6,14 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/24 13:59:42 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/31 16:32:55 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 
 typedef struct s_stack
@@ -22,6 +22,13 @@ typedef struct s_stack
 	int				idx;
 	struct s_stack	*next;
 }					t_stack;
+
+enum				e_move
+{
+	ROTATE = 1,
+	REVROT = 2,
+	REVREV = 3
+}					e_move;
 
 typedef struct s_values
 {
@@ -44,16 +51,21 @@ t_val				*ps_set_values(t_stack **alph, t_stack **bert);
 
 //	SORT PLUS
 void				ps_sort_plus(t_stack **alph, t_stack **bert);
-int					ps_act(int code, int nbr, t_stack **alph, t_stack **bert);
+int					ps_act(int code, int nbr, int len, t_stack **alph,
+						t_stack **bert);
 
 // SORT PLUS UTILS
-int					ps_calccost(int nbr, t_stack **alph, t_stack **bert);
+int					ps_calccost(int nbr, t_stack *alph, t_stack *bert);
 int					ps_push_calc(t_stack **alph, t_stack **bert);
 
-//	SORT 3-%
+//	COST CALC
+int					ps_r_cost(int nbr, t_stack *stack);
+int					ps_rr_cost(int nbr, t_stack *stack);
+int					ps_rrr_cost(int nbr, t_stack *alph, t_stack *bert);
+
+//	SORT 3
 void				ps_sorting(t_stack **alph, t_stack **bert);
 void				ps_sort_3(t_stack **stack, char type);
-void				ps_sort_4(t_stack **alph, t_stack **bert, int nbr);
 void				ps_sort_5(t_stack **alph, t_stack **bert, int nbr);
 
 //	ALGO CALC
@@ -88,6 +100,8 @@ void				ps_swap_int(int *a, int *b);
 void				ps_index(t_stack **stock, int *index, int size);
 int					*ps_tabgen(char **argv);
 int					ps_check_index_dup(int *index, int len);
+int					ps_check_str(char *str);
+int					ps_overflow(char *str);
 
 //	STACK UTILS
 t_stack				*ps_genstack(int *args, int len);

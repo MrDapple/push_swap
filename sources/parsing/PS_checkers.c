@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PS_sort_calc.c                                     :+:      :+:    :+:   */
+/*   PS_checkers.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:37:11 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/24 14:19:17 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:19:44 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ps_check_index(t_stack *stack)
 {
@@ -27,19 +27,44 @@ int	ps_check_index(t_stack *stack)
 	return (YES);
 }
 
-int	ps_stack_len(t_stack *stack)
+int	ps_check_str(char *str)
 {
 	int	i;
 
-	i = 1;
-	if (!stack)
-		return (0);
-	if (!stack->next)
-		return (1);
-	while (stack->next)
+	i = 0;
+	if (ft_strlen(str) >= 10)
 	{
-		i++;
-		stack = stack->next;
+		if (ps_overflow(str) == NO)
+			return (NO);
 	}
-	return (i);
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == 0 && str[i] != '-')
+			return (NO);
+		i++;
+	}
+	return (YES);
+}
+
+int	ps_overflow(char *str)
+{
+	char	*max;
+	int		len;
+
+	if (str[0] == '-')
+		max = "2147483648";
+	else
+		max = "2147483647";
+	if (str[0] == '-' || str[0] == '+')
+		str++;
+	len = 0;
+	while (len < 10)
+	{
+		if (str[len] > max[len])
+			return (NO);
+		if (str[len] < max[len])
+			break ;
+		len++;
+	}
+	return (YES);
 }

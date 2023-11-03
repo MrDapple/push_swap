@@ -7,23 +7,21 @@ LIGHTGREY	=	\033[0;37m
 BLACK		=	\033[0;30m
 NC			=	\033[0m
 
-SRCS		:=	PS_utils.c \
-				PS_stack_utils.c \
-				PS_A_utils.c \
-				PS_B_utils.c \
-				PS_2_utils.c \
-				PS_E_utils.c \
-				PS_sort_algo.c \
-				PS_pre_sort.c \
-				PS_sort_calc.c \
-				PS_simulate.c \
-				PS_sort_plus_utils.c \
-				PS_sort_plus.c \
-				MISC_PS_utils.c
-
-OBJS		:= $(SRCS:.c=.o)
+OBJCS		:=	sources/parsing/PS_utils.o \
+				sources/parsing/PS_stack_utils.o \
+				sources/parsing/PS_pre_sort.o \
+				sources/parsing/PS_checkers.o \
+				sources/moves/PS_AB_utils.o \
+				sources/moves/PS_2_utils.o \
+				sources/sorting/PS_sort_5.o \
+				sources/PS_simulate.o \
+				sources/PS_sort_plus_utils.o \
+				sources/PS_sort_plus.o \
+				sources/MISC_PS_utils.o \
+				sources/PS_main.o \
 
 LIBFT_A		:=	libft/libft.a
+INCLUDES	:=	includes/push_swap.h
 NAME		:=	push_swap
 
 CFLAGS		:=	-Wall -Wextra -Werror
@@ -31,17 +29,17 @@ SFLAGS		:=	-g3 -fsanitize=address
 
 all			:	libgen $(NAME)
 
-$(NAME)		:	$(OBJS) push_swap.h
-	${CC} ${CFLAGS} $(OBJS) $(LIBFT_A) -o ${NAME}
+$(NAME)		:	$(OBJCS) $(INCLUDES)
+	${CC} ${CFLAGS} $(OBJCS) $(LIBFT_A) -o ${NAME}
 
-.o			:	%.c
+%.o			:	%.c
 	$(CC) -c $(CFLAGS) -o $@ $^
 
 libgen		:
 	@make -C libft
 
 clean		:
-	@rm -f $(OBJS)
+	@rm -f $(OBJCS)
 	@make clean -C libft
 
 fclean		:	clean

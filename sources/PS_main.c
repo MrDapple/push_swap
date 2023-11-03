@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PS_utils.c                                         :+:      :+:    :+:   */
+/*   PS_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/25 14:20:44 by anvoets          ###   ########.fr       */
+/*   Created: 2023/10/31 17:16:00 by anvoets           #+#    #+#             */
+/*   Updated: 2023/10/31 17:16:22 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	free_list(t_stack **stack)
-{
-	t_stack	*next_tmp;
-	int	i;
-
-	i = 0;
-	if (!(*stack))
-		return ;
-	while ((*stack))
-	{
-		i++;
-		next_tmp = (*stack)->next;
-		free((*stack));
-		*stack = next_tmp;
-	}
-	free(next_tmp);
-}
+#include "../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	t_stack	*alph;
-	t_stack	*bert;
-	int		*tab;
-	int 	len;
+	t_stack *alph;
+	t_stack *bert;
+	int *tab;
+	int len;
 
 	if (argc == 1)
 		return (EXIT_FAILURE);
@@ -66,8 +48,6 @@ int	main(int argc, char **argv)
 	free(alph);
 	free_list(&bert);
 	free(bert);
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (EXIT_SUCCESS);
 }
-
-// if prev=null for check begin list

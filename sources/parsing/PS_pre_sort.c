@@ -6,11 +6,11 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:45 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/24 14:00:00 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:20:14 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ps_index(t_stack **stock, int *index, int size)
 {

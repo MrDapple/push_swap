@@ -6,40 +6,27 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:14:08 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/25 14:28:15 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/10/31 17:20:16 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	*ps_tabgen(char **argv)
+int	ps_stack_len(t_stack *stack)
 {
-	int		*tab;
-	int		i;
-	int		j;
+	int	i;
 
-	i = 0;
-	j = -1;
-	while (argv[i + 1])
+	i = 1;
+	if (!stack)
+		return (0);
+	if (!stack->next)
+		return (1);
+	while (stack->next)
 	{
-		while (argv[i + 1][j + 1])
-		{
-			if (ft_isdigit(argv[i + 1][++j]) == 0)
-				return (NULL);
-		}
 		i++;
-		j = -1;
+		stack = stack->next;
 	}
-	tab = malloc(sizeof(int) * i);
-	if (!tab)
-		return (NULL);
-	i = 0;
-	while (argv[i + 1])
-	{
-		tab[i] = ft_atoi(argv[i + 1]);
-		i++;
-	}
-	return (tab);
+	return (i);
 }
 
 t_stack	*ps_new_node(int content)
