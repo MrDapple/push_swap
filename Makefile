@@ -15,7 +15,6 @@ OBJCS		:=	sources/parsing/PS_utils.o \
 				sources/moves/PS_2_utils.o \
 				sources/sorting/PS_sort_5.o \
 				sources/sorting/PS_sort_algo.o \
-				sources/sorting/PS_sort_algo_utils.o \
 				sources/PS_main.o \
 
 LIBFT_A		:=	libft/libft.a

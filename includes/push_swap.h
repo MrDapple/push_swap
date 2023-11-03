@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 16:45:36 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/03 17:07:24 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,6 @@ void				ps_radix(t_stack **alph, t_stack **bert);
 // SORT ALGO UTILS
 int					ps_is_sorted(t_stack *stack);
 int					ps_find_min_index(t_stack *stack);
-void					ps_rot_direct(t_stack **stack, int len, char type);
-// int					ps_rot_act(t_stack *stack, int len, int code);
-// int					ps_rot_calc(t_stack *stack, int len);
 
 //	COST CALC
 int					ps_r_cost(int nbr, t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:41:09 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 16:49:04 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/03 17:07:15 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	ps_radix(t_stack **alph, t_stack **bert)
 		while (++j < len && ps_is_sorted(*alph) == 0)
 		{
 			num = *alph;
-			// if ((num->idx >> i) & 1)
-			// 	ps_rot_direct(alph, len, 'a');
 			if ((num->idx >> i) & 1)
 				ps_rotate(alph, 'a');
 			else
