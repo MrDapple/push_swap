@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:45 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/31 17:20:14 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/03 15:58:58 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,31 +50,6 @@ int	ps_tablen(int *tab)
 	return (i);
 }
 
-int	ps_check_index_dup(int *index, int len)
-{
-	int	*check;
-	int	i;
-	int	j;
-
-	check = index;
-	i = 0;
-	j = 1;
-	while (i < len)
-	{
-		while ((j + i) < len)
-		{
-			if (check[j + i] == index[i])
-			{
-				return (0);
-			}
-			j++;
-		}
-		i++;
-		j = i;
-	}
-	return (1);
-}
-
 int	ps_pre_sort(int *tab, int size, t_stack **stack)
 {
 	int	*index;
@@ -83,8 +58,7 @@ int	ps_pre_sort(int *tab, int size, t_stack **stack)
 
 	i = -1;
 	j = 0;
-	// index = malloc (sizeof(int) * size);
-		index = tab;
+	index = tab;
 	while (j < size)
 	{
 		i = j + 1;
@@ -98,6 +72,5 @@ int	ps_pre_sort(int *tab, int size, t_stack **stack)
 	}
 	ps_index(stack, index, size);
 	j = ps_check_index_dup(index, size);
-	// free(index);
 	return (j);
 }

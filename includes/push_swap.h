@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/10/31 16:32:55 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/03 16:28:05 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,14 @@ typedef struct s_values
 
 //			--[UTILS]--
 
-//	MISC (aka 'to delete after')
-void				print_stack(t_stack **stack, char type);
-void				print_t_val(t_val *v);
-t_val				*ps_set_values(t_stack **alph, t_stack **bert);
+//	SORT ALGO
+void				ps_sort_algo(t_stack **alph, t_stack **bert);
+void				ps_sort_10(t_stack **alph, t_stack **bert, int index);
+void				ps_radix(t_stack **alph, t_stack **bert);
 
-//	SORT PLUS
-void				ps_sort_plus(t_stack **alph, t_stack **bert);
-int					ps_act(int code, int nbr, int len, t_stack **alph,
-						t_stack **bert);
-
-// SORT PLUS UTILS
-int					ps_calccost(int nbr, t_stack *alph, t_stack *bert);
-int					ps_push_calc(t_stack **alph, t_stack **bert);
+// SORT ALGO UTILS
+int					ps_is_sorted(t_stack *list);
+int					ps_find_min_index(t_stack *list);
 
 //	COST CALC
 int					ps_r_cost(int nbr, t_stack *stack);
@@ -97,9 +92,9 @@ void				ps_revrot_sim(t_stack **stack);
 int					ps_pre_sort(int *tab, int size, t_stack **stack);
 int					ps_tablen(int *tab);
 void				ps_swap_int(int *a, int *b);
-void				ps_index(t_stack **stock, int *index, int size);
 int					*ps_tabgen(char **argv);
 int					ps_check_index_dup(int *index, int len);
+
 int					ps_check_str(char *str);
 int					ps_overflow(char *str);
 
