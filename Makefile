@@ -1,12 +1,3 @@
-RED			=	\033[0;31m
-GREEN		=	\033[0;32m
-BLUE		=	\033[1;34m
-YELLOW		=	\033[1;33m
-DARKGREY	=	\033[1;30m
-LIGHTGREY	=	\033[0;37m
-BLACK		=	\033[0;30m
-NC			=	\033[0m
-
 OBJCS		:=	sources/parsing/PS_utils.o \
 				sources/parsing/PS_stack_utils.o \
 				sources/parsing/PS_pre_sort.o \
