@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/09 17:19:17 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/09 17:41:24 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,23 +68,23 @@ int	*ps_tabgen(char **argv, int argc)
 	i = 0;
 	arr = NULL;
 	tab = NULL;
-	if (argc == 2)
+	if (argc > 2)
+		return (ps_arg_tabgen(argv));
+	arr = ft_split(argv[1], ' ');
+	if (!arr)
+		return (NULL);
+	if (!arr[i])
 	{
-		arr = ft_split(argv[1], ' ');
-		if (!arr)
-			return (NULL);
-		tab = ps_split_tabgen(arr);
-		while (arr[i])
-		{
-			free(arr[i]);
-			i++;
-		}
-		free (arr);
-		if (!tab)
-			return (NULL);
-		return (tab);
+		free(arr);
+		return (NULL);
 	}
-	return (ps_arg_tabgen(argv));
+	tab = ps_split_tabgen(arr);
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
+	if (!tab)
+		return (NULL);
+	return (tab);
 }
 
 void	free_list(t_stack **stack)
