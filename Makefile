@@ -24,9 +24,9 @@ NAME		:=	push_swap
 CFLAGS		:=	-Wall -Wextra -Werror
 SFLAGS		:=	-g3 -fsanitize=address
 
-all			:	libgen $(NAME)
+all			:	libgen $(INCLUDES) $(NAME)
 
-$(NAME)		:	$(OBJCS) $(INCLUDES)
+$(NAME)		:	$(INCLUDES) $(OBJCS)
 	${CC} ${CFLAGS} $(OBJCS) $(LIBFT_A) -o ${NAME}
 
 %.o			:	%.c

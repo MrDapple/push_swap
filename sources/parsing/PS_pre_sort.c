@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:22:45 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 15:58:58 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/09 17:25:57 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,6 @@ void	ps_swap_int(int *a, int *b)
 	tmp = *b;
 	*b = *a;
 	*a = tmp;
-}
-
-int	ps_tablen(int *tab)
-{
-	int	i;
-
-	i = 1;
-	while (tab[i])
-		i++;
-	return (i);
 }
 
 int	ps_pre_sort(int *tab, int size, t_stack **stack)
