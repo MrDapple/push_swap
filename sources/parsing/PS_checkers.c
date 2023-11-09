@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:37:11 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 16:28:59 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/09 15:46:06 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,24 @@ int	ps_check_str(char *str)
 	int	i;
 
 	i = 0;
+	if (ft_strlen(str) <= 0)
+		return (NO);
 	if (ft_strlen(str) >= 10)
 	{
 		if (ps_overflow(str) == NO)
 			return (NO);
 	}
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+	{
+		i++;
+		if (ft_isdigit(str[i]) == 0)
+			return (NO);
+	}
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == 0 && str[i] != '-')
+		if (ft_isdigit(str[i]) == 0)
 			return (NO);
 		i++;
 	}

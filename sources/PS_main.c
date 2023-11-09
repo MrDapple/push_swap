@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:00 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 16:26:25 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/09 15:45:44 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ps_len_argv(char **str)
 
 int	ps_print_error(void)
 {
-	write(3, "Error\n", 6);
+	write(2, "Error\n", 6);
 	return (EXIT_FAILURE);
 }
 

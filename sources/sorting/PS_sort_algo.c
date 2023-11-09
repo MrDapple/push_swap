@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 11:41:09 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 17:07:15 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/09 15:29:52 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,15 @@ void	ps_sort_algo(t_stack **alph, t_stack **bert)
 	int	size;
 
 	size = ps_stack_len(*alph);
-	if (size <= 5)
+	if (size == 2 && ps_is_sorted(*alph) == NO)
+		ps_swap(alph, 'a');
+	else if (size == 3)
+		ps_sort_3(alph, 'a');
+	else if (size <= 5)
 		ps_sort_5(alph, bert, 0);
-	if (size < 10 && size > 5)
+	else if (size < 10 && size > 5)
 		ps_sort_10(alph, bert, 0);
-	if (size >= 10)
+	else if (size >= 10)
 		ps_radix(alph, bert);
 }
 

@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:56:39 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/03 17:07:24 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/07 12:49:26 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,6 @@ int					ps_tablen(int *tab);
 void				ps_swap_int(int *a, int *b);
 int					*ps_tabgen(char **argv);
 int					ps_check_index_dup(int *index, int len);
-
 int					ps_check_str(char *str);
 int					ps_overflow(char *str);
 
@@ -105,6 +104,6 @@ void				ps_stackadd_back(t_stack **lst, t_stack *new);
 void				free_stack(t_stack **stack);
 
 //	FREE
-void				free_stack(t_stack **stack);
+void				free_list(t_stack **stack);
 
 #endif
