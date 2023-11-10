@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 12:27:46 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/10 11:49:23 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:56:03 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ps_swap(t_stack **stack, char type)
 	t_stack	*second;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-		return ((void)ft_printf("error(s%c)\n", type));
+		return ;
 	first = *stack;
 	second = (*stack)->next;
 	first->next = second->next;
@@ -33,7 +33,7 @@ void	ps_revrot(t_stack **stack, char type)
 	t_stack	*last;
 
 	if (!*stack || !(*stack)->next)
-		return ((void)ft_printf("error(rr%c)\n", type));
+		return ;
 	second = *stack;
 	while (second->next->next)
 		second = second->next;
@@ -49,7 +49,7 @@ void	ps_rotate(t_stack **stack, char type)
 	t_stack	*tmp;
 
 	if (!*stack || !(*stack)->next)
-		return ((void)ft_printf("error(r%c)\n", type));
+		return ;
 	tmp = (*stack);
 	*stack = (*stack)->next;
 	while ((*stack)->next)
@@ -64,7 +64,7 @@ void	ps_push_a(t_stack **alph, t_stack **bert)
 	t_stack	*tmp;
 
 	if (!*bert)
-		return ((void)ft_printf("error(pa)\n"));
+		return ;
 	if (!(*bert)->next)
 	{
 		(*bert)->next = (*alph);
@@ -91,7 +91,7 @@ void	ps_push_b(t_stack **alph, t_stack **bert)
 	t_stack	*tmp;
 
 	if (!*alph)
-		return ((void)ft_printf("error(pb)\n"));
+		return ;
 	if (!(*alph)->next)
 	{
 		(*alph)->next = (*bert);

@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:00 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/10 11:57:18 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:57:15 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 	if (!tab)
 		return (ps_print_error());
 	alph = ps_genstack(tab, ps_len_argv(argv, argc));
-	if (ps_pre_sort(tab, ps_len_argv(argv, argc), &alph) != 1)
+	if (!alph || ps_pre_sort(tab, ps_len_argv(argv, argc), &alph) != 1)
 	{
 		free_stack(&alph);
 		free(tab);

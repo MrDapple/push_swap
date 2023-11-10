@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:14:08 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/10 11:53:34 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 12:43:17 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,11 @@ t_stack	*ps_genstack(int *args, int len)
 	while (i < len)
 	{
 		temp = ps_new_node(args[i]);
+		if (!temp)
+		{
+			free_stack(&stack);
+			return (NULL);
+		}
 		ps_stackadd_back(&stack, temp);
 		i++;
 	}

@@ -1,8 +1,8 @@
-OBJCS		:=	sources/parsing/PS_tabgen.o \
-				sources/parsing/PS_stack_utils.o \
-				sources/parsing/PS_pre_sort.o \
+OBJCS		:=	sources/moves/PS_moves_AB.o \
 				sources/parsing/PS_checkers.o \
-				sources/moves/PS_moves_AB.o \
+				sources/parsing/PS_pre_sort.o \
+				sources/parsing/PS_stack_utils.o \
+				sources/parsing/PS_tabgen.o \
 				sources/sorting/PS_sort_5.o \
 				sources/sorting/PS_sort_algo.o \
 				sources/PS_main.o \
@@ -12,7 +12,6 @@ INCLUDES	:=	includes/push_swap.h
 NAME		:=	push_swap
 
 CFLAGS		:=	-Wall -Wextra -Werror
-SFLAGS		:=	-g3 -fsanitize=address
 
 all			:	libgen $(INCLUDES) $(NAME)
 
@@ -35,4 +34,4 @@ fclean		:	clean
 
 re			:	fclean all
 
-.PHONY		:	all clean fclean re libft
+.PHONY		:	all clean fclean re libgen
