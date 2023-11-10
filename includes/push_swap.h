@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 11:33:28 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/10 11:56:20 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 18:28:47 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 /*					--[UTILS]--								*/
 
 /*	main			*/
-int					ps_len_argv(char **str, int argc);
+int					ps_len_argv(char **str);
 int					ps_print_error(void);
 
 /*	moves_AB		*/
@@ -37,6 +37,7 @@ void				ps_push_a(t_stack **alph, t_stack **bert);
 void				ps_push_b(t_stack **alph, t_stack **bert);
 
 /*	checkers		*/
+int					ps_check_mult(char *str);
 int					ps_check_index(t_stack *stack);
 int					ps_check_index_dup(int *index, int len);
 int					ps_check_str(char *str);
@@ -55,6 +56,8 @@ t_stack				*ps_genstack(int *args, int len);
 void				free_stack(t_stack **stack);
 
 /*	tabgen			*/
+char				*ps_free_str_err(char *arr);
+char				*ps_clean_vars(char **argv);
 int					*ps_arg_tabgen(char **argv);
 int					*ps_split_tabgen(char **argv);
 int					*ps_tabgen(char **argv, int argc);

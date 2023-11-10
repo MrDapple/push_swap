@@ -6,37 +6,25 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:16:00 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/10 12:57:15 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 18:32:01 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ps_len_argv(char **str, int argc)
+int	ps_len_argv(char **str)
 {
 	int	i;
-	int	j;
+	int	cnt;
 
-	i = 0;
-	j = 0;
-	if (argc == 2)
+	i = 1;
+	cnt = 0;
+	while (str[i])
 	{
-		while (str[1][i])
-		{
-			while (str[1][i] == ' ')
-				i++;
-			if (ft_isprint(str[1][i]) == 1)
-			{
-				j++;
-				while (ft_isprint(str[1][i]) == 1 && str[1][i] != ' ')
-					i++;
-			}
-		}
-		return (j);
-	}
-	while (str[i + 1])
+		cnt += ps_check_mult(str[i]);
 		i++;
-	return (i);
+	}
+	return (cnt);
 }
 
 int	ps_print_error(void)
@@ -52,14 +40,14 @@ int	main(int argc, char **argv)
 	int		*tab;
 
 	if (argc == 1)
-		return (ps_print_error());
+		return (EXIT_FAILURE);
 	alph = NULL;
 	bert = NULL;
 	tab = ps_tabgen(argv, argc);
 	if (!tab)
 		return (ps_print_error());
-	alph = ps_genstack(tab, ps_len_argv(argv, argc));
-	if (!alph || ps_pre_sort(tab, ps_len_argv(argv, argc), &alph) != 1)
+	alph = ps_genstack(tab, ps_len_argv(argv));
+	if (!alph || ps_pre_sort(tab, ps_len_argv(argv), &alph) != 1)
 	{
 		free_stack(&alph);
 		free(tab);

@@ -6,11 +6,37 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 16:37:11 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/09 15:46:06 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 18:12:06 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+int	ps_check_mult(char *str)
+{
+	int	i;
+	int	h;
+
+	i = 0;
+	h = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == 1 || str[i] == '-' || str[i] == '+')
+		{
+			if ((str[i + 1] && ft_isdigit(str[i + 1]) == 1) && (str[i] == '-'
+					|| str[i] == '+'))
+				i++;
+			while (ft_isdigit(str[i]) == 1)
+				i++;
+			if (str[i] && str[i] != ' ')
+				return (-1);
+			h++;
+		}
+		else
+			i++;
+	}
+	return (h);
+}
 
 int	ps_check_index(t_stack *stack)
 {
@@ -57,17 +83,15 @@ int	ps_check_str(char *str)
 	i = 0;
 	if (ft_strlen(str) <= 0)
 		return (NO);
-	if (ft_strlen(str) >= 10)
-	{
-		if (ps_overflow(str) == NO)
-			return (NO);
-	}
-	while (str[i] == ' ')
-		i++;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		i++;
 		if (ft_isdigit(str[i]) == 0)
+			return (NO);
+	}
+	if (ft_strlen(str) >= 10)
+	{
+		if (ps_overflow(str) == NO)
 			return (NO);
 	}
 	while (str[i])
