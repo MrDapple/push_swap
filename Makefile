@@ -1,9 +1,8 @@
-OBJCS		:=	sources/parsing/PS_utils.o \
+OBJCS		:=	sources/parsing/PS_tabgen.o \
 				sources/parsing/PS_stack_utils.o \
 				sources/parsing/PS_pre_sort.o \
 				sources/parsing/PS_checkers.o \
-				sources/moves/PS_AB_utils.o \
-				sources/moves/PS_2_utils.o \
+				sources/moves/PS_moves_AB.o \
 				sources/sorting/PS_sort_5.o \
 				sources/sorting/PS_sort_algo.o \
 				sources/PS_main.o \

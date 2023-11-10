@@ -6,7 +6,7 @@
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 09:14:08 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/09 17:27:10 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:53:34 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,22 @@ t_stack	*ps_genstack(int *args, int len)
 		i++;
 	}
 	return (stack);
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*next_tmp;
+	int		i;
+
+	i = 0;
+	if (!(*stack))
+		return ;
+	while ((*stack))
+	{
+		i++;
+		next_tmp = (*stack)->next;
+		free((*stack));
+		*stack = next_tmp;
+	}
+	free(next_tmp);
 }

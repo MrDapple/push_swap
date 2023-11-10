@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PS_utils.c                                         :+:      :+:    :+:   */
+/*   PS_tabgen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anvoets <anvoets@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 08:59:41 by anvoets           #+#    #+#             */
-/*   Updated: 2023/11/09 17:41:24 by anvoets          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:54:15 by anvoets          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,22 +85,4 @@ int	*ps_tabgen(char **argv, int argc)
 	if (!tab)
 		return (NULL);
 	return (tab);
-}
-
-void	free_list(t_stack **stack)
-{
-	t_stack	*next_tmp;
-	int		i;
-
-	i = 0;
-	if (!(*stack))
-		return ;
-	while ((*stack))
-	{
-		i++;
-		next_tmp = (*stack)->next;
-		free((*stack));
-		*stack = next_tmp;
-	}
-	free(next_tmp);
 }
